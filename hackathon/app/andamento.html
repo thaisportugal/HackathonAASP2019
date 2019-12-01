@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+ 
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <meta charset="utf-8">
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link rel="stylesheet" href="css/style.css?2">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+
+    <body style="margin:0px !important; padding:0px !important;background-color: #ffffff;background-attachment: fixed;">
+       
+        <ul id="slide-out" class="sidenav" style="z-index: 99999999; background-color: rgba(140, 82, 255, 0.72); transform: translateX(-105%);">
+          <li><div class="user-view">
+            <a href="#user"><img class="circle" src="img/perfil.jpeg"></a>
+            <a href="#name"><span class="white-text name">Betina Silva</span></a>
+            <a href="#email"><span class="white-text email">betina@gmail.com</span></a>
+          </div></li>
+          <li><div class="divider" style="
+            width: 80%;
+            margin-left: 20px;
+        "></div></li>
+        <li><a class="waves-effect" href="index.html">Home</a></li>
+          <li><a class="waves-effect">Perfil</a></li>
+          <li><a class="waves-effect" href="chats.html">Ranking</a></li>
+          <li><a class="waves-effect" href="loja.html">Loja</a></li>
+          <li><a class="waves-effect" href="#!">Likes!</a></li>
+        </ul>
+      
+              
+            <div class="container" style="width:100%;height:auto;margin:auto;">
+                  <header style="position:fixed;width:100%;height:auto;background-color:transparent; !important;z-index: 99999;margin: 0px;padding: 0px;margin-top: -8px;">
+                    
+                    <img style="width:103%;margin-left:-1%;padding: 4px;" src="img/header.png" alt="">
+                  </header>
+                  <div class="contanier" style="width:95%;padding-left:20px;margin-top: 80px;position: absolute;">
+                  
+
+                           <img style="width:110%;margin-left:-4%;padding-top: 83px;" src="img/cover.png" alt="">
+                  </header>
+                  <div class="contanier" style="width:95%;padding-left:20px;margin-top: 80px;position: absolute;">
+                  
+                                   <div>
+                                  <img style="position: absolute;width: 61px;height: 65px;left: 20px;margin-top: -15px;" src="img/avatar.png">
+                                  <div class="input-field col s6">
+                                  <img style="position: absolute;width: 143px;height: 29px;left: 90px;margin-top: -51px;" src="img/jornada.png">
+                                </div>
+                                <div>
+                                <img style="position: absolute;width: 342px;height: 31px;left: 113px;margin-top: 95px;" src="img/andamento.png">
+                                </div>
+                                <div>
+                                <img style="position: absolute;width: 150px;height: 30px;left: 110px;margin-top: 425px;" src="img/favoritos.png">
+                                </div>
+                                   <div class="input-field col s6">
+                                  <img style="position: absolute;width: 1050px;height: 49px;left: 84px;margin-top: 5px;" src="img/barra.png">
+                                </div>
+
+                                <div class="input-field col s6">
+                               <div style="position: absolute;width: 1222px;height: 60px;left: 630px;margin-top: 5px;">
+                                  <p>Restam 30 minutos de estudo para sua próxima conquista!</p>
+                                </div>
+                              </div>
+                               <div class="input-field col s6">
+                                  <img style="position: absolute; width: 449px;height: 249px;left: 89px;margin-top: 157px;" src="img/grop1.png">
+                                </div>
+                                  <img style="position: absolute; width: 96px;height: 96px;left: 123px;margin-top: 200px;" src="img/group23.png">
+                                </div>
+                                  <img style="position: absolute; width: 280px;height: 159px;left: 270px;margin-top: 195px;" src="img/group10.png">
+                                <div class="input-field col s6">
+                                  <img style="position: absolute;width: 449px;height: 249px;left: 550px;margin-top: 157px;" src="img/group4.png">
+                                  <div class="input-field col s6">
+                                  <img style="position: absolute;width: 280px;height: 159px;left: 700px;margin-top: 195px;" src="img/group11.png">
+                                </div>
+                                </div>
+                                <div class="input-field col s6">
+                                  <img style="position: absolute;width: 96px;height: 96px;left: 570px;margin-top: 204px;" src="img/group27.png">
+                                </div>
+                                 <div class="input-field col s6">
+                                  <img style="position: absolute;width: 362px;height: 249px;left: 1014px;margin-top: 157px;" src="img/group05.png">
+                                    <div class="input-field col s6">
+                                  <img style="position: absolute;width: 207px;height: 144px;left: 1168px;margin-top: 203px;" src="img/group18.png">
+                                </div>
+                                    <div class="input-field col s6">
+                                    <img style="position: absolute;width: 96px;height: 96px;left: 1039px;margin-top: 201px;" src="img/group28.png">
+                                  </div>
+                                </div>
+
+
+                   
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script src="js/descer_campo.js"></script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
+
+
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+      </script>
+    </body>
+  </html>

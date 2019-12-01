@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.8.7/min/tiny-slider.js"></script>
+  <script async
+    src="https://acdn.adnxs.com/prebid/not-for-prod/1/prebid.js"></script>
+  <script async
+    src="https://static.criteo.net/js/ld/publishertag.js"></script>
+  <script>
+  window.Criteo = window.Criteo || {};
+  window.Criteo.events = window.Criteo.events || [];
+  </script>
+</head>
+<body>
+  <div id="container" class="container">
+    <div class="items-top">
+        <div class='title'>Shopping</div>
+        <div class='logos' id='logos'></div>
+        <div style='clear:both;'></div>
+    </div>
+    <div class="itemsContainer">
+      <div class="blocker-right"></div>
+      <div class="blocker-left"></div>
+      <div id="items" class="items">
+      </div>
+    </div>
+    <div class="blocker-bottom"></div>
+  </div>
+  <div id="impressions"></div>
+</body>
+<script type="text/javascript">
+
+//Config dos produtos normais
+var defaultCfgList = {itemsPerPage:3,
+                      maxPublisher:1,
+                      totalItems:10,
+                      styleSchema:[{"color":"#d52839"}],
+                      logos:[{logo:"http://rme.vitrines.in/aosudnoafids/samsung-logo.png", link:"https://www.samsung.com.br/"}]
+                      };
+
+//Config do prebid
+var prebidCfgList = [
+  // {name:"criteo",maxoffers:1,lineItemsRange:"0..50:0.01", zoneId: "948594", nativeCallback: parseCriteoBids, timeout:1500, color:"#5f6670"},
+  // {name:"rtbhouse",maxoffers:5,publisherId:"gQd7Sz77kwS7kiungluK",region:"prebid-us", allowSmallerSizes: true, color:"#ef4136"}
+];
+
+var sponserSelected = undefined;
+
+var getJSON = function(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
+    xhr.onload = function() {
+      var status = xhr.status;
+      if (status === 200) {
+        callback(null, xhr.response);
+      } else {
+        callback(status, xhr.response);
+      }
+    };
+    xhr.send();
+};
+
+Number.prototype.formatMoney = function(places, symbol, thousand, decimal) {
+  places = !isNaN(places = Math.abs(places)) ? places : 2;
+  symbol = symbol !== undefined ? symbol : "R$";
+  thousand = thousand || ".";
+  decimal = decimal || ",";
+  var number = this,
+      negative = number < 0 ? "-" : "",
+      i = parseInt(number = Math.abs(+number || 0).toFixed(places), 10) + "",
+      j = (j = i.length) > 3 ? j % 3 : 0;
+  return symbol + " " + negative + (j ? i.substr(0, j) + thousand : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousand) + (places ? decimal + Math.abs(number - i).toFixed(places).slice(2) : "");
+};
+
+// Add Array#indexOf for Internet Explorer <= 8
+if (!Array.prototype.indexOf) {
+  Array.prototype.indexOf = function(obj, start) {
+    for (var i = (start || 0), j = this.length; i < j; i++) {
+      if (this[i] === obj) { return i; }
+    }
+    return -1;
+  }
+}
+
+/*
+ * Get and setup items.
+ */
+var rmpTemplate = {};
+var ocapiItems = [], remoteIds = [], ocapiItemsLinkRequest = [];
+getJSON('https://display.vitrines.in/dynamic-ad/embed.js?zid=1701&container=dynamic-ad-1701&responsive=true&branding_color=0669DE&rmp_tmplttp=microContainer',
+function(err, data) {
+  if (err !== null) {
+    console.log(err);
+  } else {
+    rmpTemplate = data;
+
+    //teste estatico
+    rmpTemplate.placements = [
+        {
+            "zone_id": 1901,
+            "creative_id": 997,
+            "prod_ids": 876,
+            "click_url": "http://rdm.reamp.com.br/clk",
+            //"rmpRemoteIds": "1703b87929105ca230067f39ba7451a5,53cb858561c185d436b776ad0131d7d5,5d153bbb3444aacbb6dbae4d2588133f,a7e10acfce0f637d58f41077358024,153198142eaed17d185e797eb72d60a1,54b2b7e1e4e7017fb3fbccf04cacbdfa,28020ff214404907b257009dd298249f,2724c9b15f17adf1dcaf83197d3c4588,642389ed0d42d150294da4303e198f6d,26455d737aea3c7baf9cc316120f1d6",
+            "rmpRemoteIds": "e836b497c7b9b032f736ab0cd05e47e7,d1026ef233f9a3e915b4b057420547e2,1ba057bd52359e3ae2530421339fea49",
+            "custom_html": "",
+            "item_quantity": "4",
+            "adv_id": "1000066",
+            "branding_color": "0669DE",
+            "responsive": "true"
+        }
+    ];
+
+    if(rmpTemplate.placements.length > defaultCfgList.maxPublisher){
+      //limitado maximo de publisher
+      rmpTemplate.placements.length = defaultCfgList.maxPublisher;
+    }
+
+    for (var i=0, length=defaultCfgList.maxPublisher; i<length; ++i) {
+      remoteIds = rmpTemplate.placements[i] ? rmpTemplate.placements[i].rmpRemoteIds.split(",") : "";
+      if(defaultCfgList.maxPublisher == 1 && remoteIds.length > 0){
+        flength = remoteIds.length;
+        while (remoteIds.length < defaultCfgList.totalItems) {
+          remoteIds.push(remoteIds[Math.floor((Math.random() * flength) + 0)]);
+        }
+        remoteIds = remoteIds.sort(function() {return .5 - Math.random();});
+      }
+      if(remoteIds.length > defaultCfgList.itemsPerPage && rmpTemplate.placements.length >= defaultCfgList.itemsPerPage){
+        //limite maximo de produtos
+        remoteIds.length = defaultCfgList.itemsPerPage;
+      }
+      var f = (function(){
+        var xhr = [], h;
+        for(h = 0; h < defaultCfgList.totalItems; h++){
+          var zone = rmpTemplate.placements[i].zone_id;
+          (function(h){
+              xhr[h] = new XMLHttpRequest();
+              url = "https://rat.vitrines.in/"+remoteIds[h]+".json";
+              xhr[h].responseType = 'json';
+              xhr[h].open("GET", url, true);
+              xhr[h].onreadystatechange = function(){
+                  if (xhr[h].readyState === 4 && xhr[h].status === 200){
+                      ocapiItems.push({"items":xhr[h].response, "zone_id":zone});
+                  }
+              };
+              xhr[h].send();
+          })(h);
+        }
+      })();
+    }
+  }
+});
+
+var view = {};
+
+/*
+ * Utility functions for views.
+ */
+var templateFunctions = {
+  prepare_image_link: function (item) {
+    let finalLink = item.items ? item.items.image_link.replace("http:", "https:") : item;
+    return finalLink;
+  },
+
+  prepare_link: function (item) {
+    let finalUrl = item.items ? decodeURIComponent(item.items.link) : item.link;
+    if(finalUrl.includes('http')){
+      finalUrl = encodeURIComponent(finalUrl);
+    }
+    return "https://display.vitrines.in/clk?zid="+zone_id+"&cid="+creative_id+"&dvrtsrd="+advertiser_id+"&r="+finalUrl;
+  },
+
+  formatted_price: function(item) {
+    if(item.full_price_text) {
+      if(item.full_price_text.toString().includes("0.0") || item.full_price_text.toString().includes("R$0") || item.full_price_text.toString().includes("R$ 0")){
+        return "";
+      }
+      return item.full_price_text;
+    } else {
+      var price = parseFloat(item.installment_amount, 10) > 0 ? item.installment_amount : item.items.sale_price;
+      if(price.toString().includes("0.0") || price.toString().includes("R$0") || price.toString().includes("R$ 0")){
+        return '';
+      }else{
+        if(item.installment_months > 1){
+          return `${item.installment_months} x R$ ${price.formatMoney()}`;
+        }else{
+          return `${price.formatMoney()}`;
+        }
+      }
+    }
+  },
+
+  placeColor: function(currentItem, totalItems, prebidCfgList, sponsoredBy) {
+    if(prebidCfgList && sponsoredBy){
+      return prebidCfgList.filter(sponsored => sponsored.name == sponsoredBy)[0].color;
+    }else{
+      var itemGroup = Math.ceil((currentItem +1) / defaultCfgList.itemsPerPage) -1;
+      if(itemGroup > 0 && defaultCfgList.styleSchema[itemGroup]){
+        return defaultCfgList.styleSchema[itemGroup].color;
+      }
+    }
+  },
+
+  setControlColor: function(prebidCfgList, sponsoredBy) {
+    //setar a cor da bolinha para cor do prebid
+    let cor = prebidCfgList.filter(sponsored => sponsored.name == sponsoredBy)[0].color;
+    document.getElementsByClassName("tns-nav-active")[0] ? document.getElementsByClassName("tns-nav-active")[0].style.background = cor : "";
+  },
+
+  setHeaderLogo: function(item, sponsoredBy){
+    let rtbhouseLogo = "https://assets.vitrines.in/logos/rtbhouse.png";
+    if(item.products[0].icon){
+      document.getElementById("logo-1").src = rtbhouseLogo;
+      document.getElementById("logoLink-1").href = "";
+      
+    }else{
+      document.getElementById("logo-1").src = item.products[0].icon ? decodeURIComponent(item.products[0].icon.url) : item.advertiser_logo_url;
+      //document.getElementById("logo-1").src = criteoLogo;
+      // document.getElementById("logo-1").style.paddingLeft = "93px";
+      // document.getElementById("logo-1").style.marginTop = "3px";
+      // document.getElementById("logo-1").style.float = "right";
+      document.getElementById("logoLink-1").href = item.advertiser_logo_click_url ? item.advertiser_logo_click_url : "";
+    }
+  },
+
+  impressionTrackers: function(item){
+    var allImpressions = [];
+    if(item.impression_pixels){
+      if(item.impression_pixels.length > 0){
+        allImpressions.push(item.impression_pixels.url);
+      }
+    }else if(item.products.length > 0){
+      for (var m = 0, n = item.products.length; m < n; ++m) {
+        if(item.products[m].impressionTrackers.length > 0){
+          allImpressions.push(item.products[m].impressionTrackers);
+        }
+      }
+    }
+    for (var e = 0, d = allImpressions.length; e < d; ++e) {
+      document.getElementById("impressions").innerHTML +=
+          '<img height="1" width="1" style="display:none;" alt="" src="' + allImpressions[e] + '" />';
+    }
+  },
+
+  impressionClick:function(sponsoredBy, highestTotalBid){
+    setTimeout(function(){
+      var elems = document.querySelectorAll(".product");
+      for (var c = 0, l = elems.length; c < l; ++c) {
+        elems[c].addEventListener('click', function (event) {
+          reampEvent('click', sponsoredBy, highestTotalBid);
+        }, false);
+      }
+    }, 500);
+  },
+
+  decodeFully:function(url){
+    while(url != unescape(url)) {
+    url = unescape(url);
+    }
+    return url;
+  }
+
+};
+
+function addLogos() {
+  logosElem = document.getElementById("logos");
+  for (var i=0, length=defaultCfgList.maxPublisher; i<length; ++i) {
+      logosElem.innerHTML += `
+        <a href="${defaultCfgList.logos[i].link}" id="logoLink-${i +1}" target="_blank"><img src='${defaultCfgList.logos[i].logo}' id="logo-${i +1}"></a>`;
+  }
+};
+addLogos();
+
+var stampRemove = function(items) {
+  if(items < 3){
+    document.getElementById("logo-2") ? document.getElementById("logo-2").style.cssText = "display:none" : "";
+    document.getElementById("logo-3") ? document.getElementById("logo-3").style.cssText = "display:none" : "";
+  }else{
+    document.getElementById("logo-2") ? document.getElementById("logo-2").style.cssText = "display:inline-block" : "";
+    document.getElementById("logo-3") ? document.getElementById("logo-3").style.cssText = "display:inline-block" : "";
+  }
+};
+
+function getCurrentPage(navCurrentIndex, items) {
+  let page = 1;
+  if(items > 2){
+    page = Math.ceil((navCurrentIndex / items) + 1) < 4 ? Math.ceil((navCurrentIndex / items) + 1) : 1;
+  }else{
+    let pIntex = Math.ceil(navCurrentIndex / 4);
+    if(pIntex >= 4){
+      page = 3;
+    }else if(pIntex <= 0){
+      page = 1;
+    }else{
+      page = pIntex
+    }
+  }
+  return page;
+};
+
+var showItems = function() {
+  var items = []
+
+  ocapiItems.sort(function(a, b) { 
+    return a.zone_id - b.zone_id;
+  });
+
+  var productsElem = document.getElementById('items');
+  var all_items = [], color = "";
+
+  if(ocapiItems.length <= 0){
+    for (var i=0, length=defaultCfgList.itemsPerPage; i<length; ++i) {
+        productsElem.innerHTML += `
+          <div id="item-${i}" class="item"></div>`;
+    }
+  }else{
+    for (var i=0, length=ocapiItems.length; i<length; ++i) {
+        productsElem.innerHTML += `
+          <div id="item-${i}" class="item">
+            <a href="${templateFunctions.prepare_link(ocapiItems[i])}" target="_blank">
+              <div class="image">
+                <img src="${templateFunctions.prepare_image_link(ocapiItems[i])}">
+              </div>
+              <span class="name">${ocapiItems[i].items.name}</span>
+              <span class="price">${templateFunctions.formatted_price(ocapiItems[i])}</span>
+              <div class="showColor" id="showColor" style="background-color: ${templateFunctions.placeColor(i, defaultCfgList.itemsPerPage)}"></div>
+            </a>
+          </div>`;
+    }
+  }
+
+  var slider = tns({
+    "items": defaultCfgList.itemsPerPage,
+    "responsive": {
+      "100": {
+        "items": 2,
+        "controls": false,
+        "slideBy": "page",
+        "mouseDrag": true
+      },
+      "767": {
+        "items": defaultCfgList.itemsPerPage,
+        "controls": true,
+        "slideBy": defaultCfgList.itemsPerPage,
+        "mouseDrag": false
+      }
+    },
+    "nav": true,
+    "container": ".items",
+    "swipeAngle": false,
+    "speed": 400,
+    "loop": true,
+    "mouseDrag": true
+  });
+
+  var info = slider.getInfo();
+  document.getElementById("logo-1").style.cssText = "filter: grayscale(0%);opacity: 1;";
+  document.getElementsByClassName("tns-nav-active")[0].style.background = defaultCfgList.styleSchema[0].color;
+
+  slider.events.on('transitionEnd', function (e) {
+    stampRemove(e.items);
+    //var publisher = ocapiItems[e.navCurrentIndex].zone_id;
+    var page = getCurrentPage(e.navCurrentIndex, e.items);
+
+    for (var i = 1, length = 3 + 1; i < length; ++i) {
+      if(e.items > 2){
+        document.getElementById("logo-" + i) ? document.getElementById("logo-" + i).style.cssText = "filter: grayscale(100%);opacity: 0.4;" : "";
+      }else{
+        document.getElementById("logo-" + i) ? document.getElementById("logo-" + i).style.display = "none" : "";
+      }
+    }
+
+    for (var i = 0, length = document.querySelectorAll('[aria-selected="false"]').length; i < length; ++i) {
+      document.querySelectorAll('[aria-selected="false"]')[i].style.background = "#c1c1c1";
+    }
+
+    if(defaultCfgList.maxPublisher > 1){
+      document.getElementById(`logo-${page}`).style.cssText = "filter: grayscale(0%);opacity: 1;";
+    }else{
+      document.getElementById(`logo-1`).style.cssText = "filter: grayscale(0%);opacity: 1;";
+    }
+
+    if(prebidCfgList.length > 0 && sponserSelected != undefined && page === 1){
+      let cor = prebidCfgList.filter(sponsored => sponsored.name == sponserSelected)[0].color;
+      document.getElementsByClassName("tns-nav-active")[0].style.background = cor;
+    }else if(defaultCfgList.maxPublisher > 1){
+      document.getElementsByClassName("tns-nav-active")[0].style.background = defaultCfgList.styleSchema[page -1].color;
+    }else{
+      document.getElementsByClassName("tns-nav-active")[0].style.background = defaultCfgList.styleSchema[0].color;
+    }
+  });
+
+  var oldx = 0;
+  document.onmousemove = handleMouseMove;//onmousedown
+  function handleMouseMove(event) {
+    oldx = event.clientX;
+  }
+
+  slider.events.on('dragEnd', function (e) {
+    var direction = "";
+    if (e.event.clientX < oldx) {
+      direction = "left"
+    } else if (e.event.clientX > oldx) {
+      direction = "right"
+    }
+    oldx = e.event.clientX;
+
+    if(ocapiItems[e.navCurrentIndex + 1]){
+      if(ocapiItems[e.navCurrentIndex].zone_id != ocapiItems[e.navCurrentIndex + 1].zone_id){
+        if(direction == "right"){
+          slider.goTo(e.navCurrentIndex + 1);
+        }else{
+          slider.goTo(e.navCurrentIndex - 1);
+        }
+      }
+    }else{
+      if(direction == "right"){
+        slider.goTo(e.navCurrentIndex + 1);
+      }else{
+        slider.goTo(e.navCurrentIndex - 1);
+      }
+    }
+  });
+
+  stampRemove(info.items);
+};
+
+var timer = setInterval(function(){
+  if(ocapiItems.length >= defaultCfgList.totalItems){
+    showItems();
+    clearInterval(timer);
+  } 
+}, 100);
+
+//Prebid || || || || ||
+//       \/ \/ \/ \/ \/
+
+// --
+
+var zone_id = ---ZID---;
+var creative_id = ---PREBID_CREATIVE---;
+var advertiser_id = ---PREBID_ADVERTISER---;
+
+function reampEvent(eventName, eventKey, eventValue) {
+  var reampUrl = `https://rdm.reamp.com.br/vnt?znid=${zone_id}&cid=${creative_id}&dvrtsrd=${advertiser_id}&vntnm=${eventName}&prdctnm=${eventKey}&vntvl=${eventValue}&cb=${Math.random()}`;
+  document.getElementById("impressions").innerHTML = '<img height="1" width="1" style="display:none;" alt="" src="' + reampUrl + '" />';
+}
+
+function parseCriteoBids(a) {
+  var z = a[0];
+  if(!z) return;
+  criteo = z.nativePayload;
+  if(!criteo) return;
+  var vitrineProds = [];
+  for (var e = 0, d = criteo.products.length; e < d; ++e) {
+    var product = criteo.products[e];
+    var vitrineProd = {};
+    vitrineProd.name = product.title.replace('>', '');
+    vitrineProd.image = {};
+    vitrineProd.image.url = product.image.url;
+    vitrineProd.installment_amount = 1;
+    vitrineProd.full_price_text = product.price;
+    vitrineProd.image_link = product.image.url;
+    vitrineProd.link = product.click_url;
+    vitrineProd.style = "height: 97px; width: auto; max-width: 160px;";
+    vitrineProds.push(vitrineProd);
+  }
+  
+  addToPrebidMap("criteo", {'products':vitrineProds,
+    'maxBids':1, 
+    'totalBid':a[0].cpm, 
+    'impression_pixels':criteo.impression_pixels, 
+    'advertiser_logo_url':criteo.advertiser.logo.url,
+    'optout_image_url':criteo.privacy.optout_image_url,
+    'optout_click_url':criteo.privacy.optout_click_url,
+    'advertiser_logo_click_url':criteo.advertiser.logo_click_url
+    }
+  );
+}
+
+function initPrebid(prebidCfg,pbjs) {
+  if(prebidCfg.name == "criteo") {
+    console.log('RMPP> ' + 'criteo loading ...');
+    Criteo.events.push(function () {
+      var adUnits = {
+              "placements": [{
+                  "slotid": "iframe-display-dynamic-ad-1504208085703",
+                  "zoneid": prebidCfg.zoneId,
+                  "nativeCallback": prebidCfg.nativeCallback
+              }]
+          };
+          Criteo.SetLineItemRanges(prebidCfg.lineItemsRange);
+          Criteo.RequestBids(adUnits, prebidCfg.nativeCallback, prebidCfg.timeout);
+      });
+  } else {
+    for (var i=0, length=prebidCfg.maxoffers; i<length; ++i) { 
+        pbjs.que.push(function() {
+
+            pbjs.setConfig({
+                debug: true
+            });
+
+            var allSlotsBidWon = function allSlotsBidWon() {
+                console.log('RMPP> ' + 'allSlotsBidWon called');
+            };
+
+            pbjs.onEvent('bidWon', allSlotsBidWon);
+            
+            bidParams = {};
+            if (prebidCfg.region) bidParams.region = prebidCfg.region;
+            if (prebidCfg.publisherId) bidParams.publisherId = prebidCfg.publisherId;
+            if (prebidCfg.networkId) bidParams.networkId = prebidCfg.networkId;
+            if (prebidCfg.zoneId) bidParams.zoneId = prebidCfg.zoneId;
+            if (prebidCfg.nativeCallback) bidParams.nativeCallback = prebidCfg.nativeCallback;
+            if (prebidCfg.allowSmallerSizes) bidParams.allowSmallerSizes = prebidCfg.allowSmallerSizes;
+
+            var adUnits = [{
+                    code: 'native-test-globo',
+                    sizes: [[1, 8]],
+                    mediaTypes: {
+                        native: {
+                            title: {required: true},
+                            body: {required: true},
+                            image: {required: true},
+                            sponsoredBy: {required: true},
+                            icon: {required: false},
+                        }
+                    },
+                    bids: [{
+                        bidder: prebidCfg.name,
+                        params: bidParams
+                    }]
+                }];
+
+            pbjs.addAdUnits(adUnits);
+            pbjs.requestBids({
+                bidsBackHandler: function(bidResponses) {
+                    for (var key in bidResponses) {
+                        var bid = bidResponses[key];
+                        var bidInstances = bid.bids;
+                        
+                        var name = prebidCfg.name;
+
+                        // apenas adicionar o resultado no mapa
+                        var bidValue = 0;
+                        var bidProducts = [];
+                        for (var bi in bidInstances) {
+                            var bidInstance = bidInstances[bi];
+                            product = bidInstance.native;
+                            // TODO validar produto aqui
+                            bidProducts.push(product);
+                            bidValue += bidInstance.cpm;
+                        }
+                        
+                        addToPrebidMap(name, {'products':bidProducts,'totalBid':bidValue, 'maxBids':prebidCfg.maxoffers});
+                    }
+                }
+            });
+        });
+      }
+  }
+}
+
+function verifyFinished() {
+  if(!prebidResultMap) {
+    setTimeout(verifyFinished, 1000);
+    console.log('RMPP> ' + 'probably not started');
+    return;
+  }
+  if(prebidResultMap.size == 0) {
+    setTimeout(verifyFinished, 1000);
+    console.log('RMPP> ' + 'probably not started');
+    return;
+  }
+  for (var [key, value] of prebidResultMap) {
+    var name = key;
+    var currentResult = value;
+    var currentOffers = currentResult.products;
+    if(currentResult.bids >= currentResult.maxBids) currentResult.finished = true;
+    if(!value || !value.finished) {
+      setTimeout(verifyFinished, 1000);
+      return;
+    }
+  }
+
+  showProducts();
+}
+setTimeout(verifyFinished, 1000);
+
+function showProducts() {
+  // iterar nos bid tudo e ver quem vai dar mais dinheiro
+  var highestTotalBid = 0;
+  var highestBidder = {};
+  for (var [key, value] of prebidResultMap) {
+    var totalBid = value.totalBid;
+    if(totalBid > highestTotalBid) {
+      highestTotalBid = totalBid;
+      highestBidder = value;
+      highestBidder.name = key;
+    }
+  }
+  if(highestBidder) {
+    showProductsFromBidder(highestBidder, highestBidder.name, highestTotalBid);
+
+    highestBidder.products.map((product, index) => {
+      reampEvent('view', highestBidder.name, highestTotalBid);
+    });
+  }
+}
+
+function firstNotNull(prod, values) {
+  for (var i=0, length=values.length; i<length; ++i) {
+    var v = values[i];
+    if(prod[v]) return prod[v]; 
+  }
+  return null;
+}
+
+function translateProd(prodFrom) {
+  prod = prodFrom;
+  prod.click_url = prod.click_url ? prod.click_url : firstNotNull(prod,["clickUrl"]);
+  prod.name = prod.name ? prod.name : firstNotNull(prod,["title"]);
+  prod.image_link = prod.image_link ? prod.image_link : prod.image.url;
+  prod.full_price_text = prod.full_price_text ? prod.full_price_text : prod.body;
+  return prod;
+}
+
+function renderBids(products, sponsoredBy) {
+  if(products.length >= 0){
+
+    let bidslength = products.length;
+    if(defaultCfgList.totalItems > defaultCfgList.itemsPerPage && sponsoredBy == "criteo"){
+      bidslength = defaultCfgList.itemsPerPage;
+      document.getElementsByClassName('tns-controls')[0].style = "display: none";
+      document.getElementsByClassName('tns-nav')[0].style = "display: none";
+    }
+
+    for (var i=0, length=bidslength; i<length; ++i) {
+      var prod = translateProd(products[i]);
+
+      var productElem = document.getElementById("item-" + i);
+      if(productElem)
+        productElem.innerHTML = `
+          <a href="${templateFunctions.prepare_link(products[i])}" title="${products[i].name}" target="_blank" id="seg_bid${i}" class="bidClick">
+            <div class="image" style="align-items:center">
+              <img src="${templateFunctions.prepare_image_link(templateFunctions.decodeFully(prod.image_link))}">
+            </div>
+            <span class="name">${products[i].name}</span>
+            <span class="price">${templateFunctions.formatted_price(products[i])}</span>
+            <div class="showColor" id="showColor" style="background-color: ${templateFunctions.placeColor(i, defaultCfgList.itemsPerPage, prebidCfgList, sponsoredBy)}"></div>
+          </a>`;
+    }
+  } 
+}
+
+function showProductsFromBidder(bidder, sponsoredBy, highestTotalBid) {
+  var products = bidder.products;
+  sponserSelected = sponsoredBy;
+  renderBids(products, sponsoredBy, highestTotalBid);
+  templateFunctions.setHeaderLogo(bidder, sponsoredBy);
+  templateFunctions.impressionTrackers(bidder);
+  templateFunctions.impressionClick(sponsoredBy, highestTotalBid);
+  templateFunctions.setControlColor(prebidCfgList, sponsoredBy);
+}
+
+var productTitleMap = new Map();
+
+function validateProduct(prod) {
+  var productTitle = prod.title;
+  if(prod.name) productTitle = prod.name;
+  if(productTitleMap.get(productTitle)) {
+    return false;
+  }
+  productTitleMap.set(productTitle,prod);
+  return true;
+}
+
+function addToPrebidMap(name, prebidResult) {
+  var currentResult = prebidResultMap.get(name);
+  
+  if(currentResult) {
+    if(!currentResult.bids) currentResult.bids = 0;
+    currentResult.bids += 1;
+    for (var i=0, length=prebidResult.products.length; i<length; ++i) {
+      var product = prebidResult.products[i];
+      if(!validateProduct(product)) return;
+      currentResult.products.push(product);
+    }
+    currentResult.totalBid += prebidResult.totalBid;
+  } else {
+    for (var i=0, length=prebidResult.products.length; i<length; ++i) {
+      var product = prebidResult.products[i];
+      if(!validateProduct(product)) return;
+    }
+    currentResult = prebidResult;
+    if(!currentResult.bids) currentResult.bids = 0;
+    currentResult.bids += 1;
+  }
+  // vamos ver se ja tem oferta p enxer a parada
+  // adicionar produtos tb
+  var currentOffers = currentResult.products;
+  if(currentOffers.length >= 5 || currentResult.bids >= currentResult.maxBids) {//aqui...
+    // esse aqui ja acabou
+    currentResult.finished = true;
+  }
+  if(currentOffers.length >= 5){//só adiciona se tiver os 5 produtos
+    prebidResultMap.set(name, currentResult);//aqui...
+  }
+}
+
+var pbjs = pbjs || {};
+pbjs.que = pbjs.que || [];
+var PREBID_TIMEOUT = 3000;
+
+function initAdserver() {
+    if (pbjs.initAdserverSet) return;
+    pbjs.initAdserverSet = true;
+}
+
+// Load GPT when timeout is reached.
+setTimeout(initAdserver, PREBID_TIMEOUT);
+
+// mapa para valores do prebid
+var prebidResultMap = new Map();
+
+for (var i=0, length=prebidCfgList.length; i<length; ++i) {
+var prebid = prebidCfgList[i];
+  initPrebid(prebid,pbjs);
+}
+</script>
+<style type="text/css">
+  .tns-outer{padding:0 !important}.tns-outer [hidden]{display:none !important}.tns-outer [aria-controls],.tns-outer [data-action]{cursor:pointer}.tns-slider{-webkit-transition:all 0s;-moz-transition:all 0s;transition:all 0s}.tns-slider>div,.tns-slider>li{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}.tns-horizontal.tns-subpixel{white-space:nowrap}.tns-horizontal.tns-subpixel>div,.tns-horizontal.tns-subpixel>li{display:inline-block;vertical-align:top;white-space:normal}.tns-horizontal.tns-no-subpixel:after{content:'';display:table;clear:both}.tns-horizontal.tns-no-subpixel>div,.tns-horizontal.tns-no-subpixel>li{float:left;margin-right:-100%}.tns-no-calc{position:relative;left:0}.tns-gallery{position:relative;left:0;min-height:1px}.tns-gallery>div,.tns-gallery>li{position:absolute;left:-100%;-webkit-transition:transform 0s, opacity 0s;-moz-transition:transform 0s, opacity 0s;transition:transform 0s, opacity 0s}.tns-gallery>.tns-moving{-webkit-transition:all 0.25s;-moz-transition:all 0.25s;transition:all 0.25s}.tns-lazy-img{-webkit-transition:opacity 0.6s;-moz-transition:opacity 0.6s;transition:opacity 0.6s;opacity:0.6}.tns-lazy-img.loaded{opacity:1}.tns-ah{-webkit-transition:height 0s;-moz-transition:height 0s;transition:height 0s}.tns-ovh{overflow:hidden}.tns-visually-hidden{position:absolute;left:-10000em}.tns-transparent{opacity:0;visibility:hidden}.tns-fadeIn{opacity:1;filter:alpha(opacity=100);z-index:0}.tns-normal,.tns-fadeOut{opacity:0;filter:alpha(opacity=0);z-index:-1}.tns-t-subp2{margin:0 auto;width:310px;position:relative;height:10px;overflow:hidden}.tns-t-ct{width:2333.3333333%;width:-webkit-calc(100% * 70 / 3);width:-moz-calc(100% * 70 / 3);width:calc(100% * 70 / 3);position:absolute;right:0}.tns-t-ct:after{content:'';display:table;clear:both}.tns-t-ct>div{width:1.4285714%;width:-webkit-calc(100% / 70);width:-moz-calc(100% / 70);width:calc(100% / 70);height:10px;float:left}
+
+@font-face{
+    font-family: 'proximanova-bold-limited-webfont';
+    src: url('//s.glbimg.com/gl/ba/fonts/proximanova-bold-limited-webfont.eot');
+    src: url('//s.glbimg.com/gl/ba/fonts/proximanova-bold-limited-webfont.eot?#iefix') format('embedded-opentype'),
+         url('//s.glbimg.com/gl/ba/fonts/proximanova-bold-limited-webfont.woff') format('woff'),
+         url('//s.glbimg.com/gl/ba/fonts/proximanova-bold-limited-webfont.ttf') format('truetype'),
+         url('//s.glbimg.com/gl/ba/fonts/proximanova-bold-limited-webfont.svg#proximanova-bold-limited-webfont') format('svg');
+}
+@font-face{
+    font-family: 'opensans-regular-webfont';
+    src: url('//s.glbimg.com/gl/ba/fonts/opensans-regular-webfont.eot');
+    src: url('//s.glbimg.com/gl/ba/fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('//s.glbimg.com/gl/ba/fonts/opensans-regular-webfont.woff') format('woff'),
+         url('//s.glbimg.com/gl/ba/fonts/opensans-regular-webfont.ttf') format('truetype'),
+         url('//s.glbimg.com/gl/ba/fonts/opensans-regular-webfont.svg#opensans-regular-webfont') format('svg');
+}
+@font-face{
+    font-family: 'opensans-bold-webfont';
+    src: url('//s.glbimg.com/gl/ba/fonts/opensans-bold-webfont.eot');
+    src: url('//s.glbimg.com/gl/ba/fonts/opensans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('//s.glbimg.com/gl/ba/fonts/opensans-bold-webfont.woff') format('woff'),
+         url('//s.glbimg.com/gl/ba/fonts/opensans-bold-webfont.ttf') format('truetype'),
+         url('//s.glbimg.com/gl/ba/fonts/opensans-bold-webfont.svg#opensans-bold-webfont') format('svg');
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  justify-content: center;
+  display: flex;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  background-color: transparent;
+  z-index: 100;
+  background-color: #efefef;
+}
+
+.items{
+  position: relative;
+  margin-top: 0px;
+  float: left;
+  display: flex;
+  width: 100%;
+  height: 300px;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.item{
+  width: 100%;
+  height: 300px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  min-width: 200px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+/*.itemsContainer{
+  position: relative;
+  width: 90%;
+  min-width: 450px;
+  max-width: 1120px;
+}*/
+
+.itemsContainer{
+  position: relative;
+  width: 90%;
+  min-width: 450px;
+  max-width: 970px;
+}
+
+.image{
+  height: 130px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+
+.image img{
+  position: absolute;
+  height: auto;
+  width: auto; 
+  max-width: 152px;
+  max-height: 160px;
+}
+
+.name{
+  display: block;
+  margin: 24px 24px 16px 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  white-space: nowrap;
+  text-align: center;
+  color: #555555;
+  font-family: opensans-regular-webfont, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.price{
+  display: block;
+  padding-left: 0px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 4px;
+  padding-bottom: 28px;
+  height: 31.5px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.5px;
+  color: #333333;
+  font-family: "opensans-bold-webfont", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.showColor{
+  background-color: #d52839;
+  width: 100%;
+  height: 4px;
+  text-align: center;
+}
+
+.items-top{
+  position: absolute;
+  width: 90%;
+  max-width: 970px;
+}
+
+.logos{
+  position: absolute;
+  right: 14px;
+  padding-top: 10px;
+}
+
+.logos img{
+  max-width: 93px;
+  max-height: 33px;
+  padding-left: 8px;
+  filter: grayscale(100%);
+  opacity: 0.4;
+}
+
+.title{
+  margin-left: 14px;
+  margin-top: 18px;
+  margin-bottom: 16px;
+  color: rgb(51, 51, 51);
+  float: left;
+  font-size: 16px;
+  color: #333333;
+  letter-spacing: -0.44px;
+  text-align: left;
+  line-height: 16px;
+  font-family: "opensans-regular-webfont", Arial, sans-serif;
+}
+
+.tns-controls {
+  position: absolute;
+  bottom: 50%;
+  z-index: 100;
+  width: 100%;
+}
+
+.tns-controls button:first-child {
+  position: absolute;
+  left: -2.8%;
+  background-color: transparent;
+  font-size: 0px;
+  border: 0px transparent;
+}
+
+.tns-controls button:last-child {
+  position: absolute;
+  right: -2.8%;
+  background-color: transparent;
+  font-size: 0px;
+  border: 0px transparent;
+}
+
+.tns-controls button:first-child,
+.tns-controls button:last-child {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 18px;
+  box-shadow: -2px 2px 0 #333333;
+  cursor: pointer;
+  outline: none;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.tns-controls button:first-child{
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.tns-controls button:last-child {
+  -webkit-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+
+@media (max-width: 970px) 
+{
+  .tns-controls button:first-child{
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    margin-left: 0.7%;
+  }
+  
+  .tns-controls button:last-child {
+    -webkit-transform: rotate(225deg);
+    transform: rotate(225deg);
+    margin-right: 0.7%;
+  }
+}
+
+.tns-nav{
+  margin-top: 318px;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+}
+
+.tns-nav > [aria-controls] {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    margin: 0 6px;
+    border-radius: 50%;
+    background: #dddddd;
+    border: 0;
+}
+
+.tns-nav > [aria-selected="true"] {
+    background: #666;
+}
+
+.tns-ovh{
+  margin-top: 50px;
+}
+
+.blocker-right {
+  display: block;
+  background-color: #efefef;
+  height: 402px;
+  width: 14px;
+  min-height: 1px;
+  position: absolute;
+  right: 0px;
+  z-index: 1;
+}
+
+.blocker-left {
+  display: block;
+  background-color: #efefef;
+  height: 402px;
+  width: 14px;
+  min-height: 1px;
+  position: absolute;
+  left: 0px;
+  z-index: 1;
+}
+
+.blocker-bottom {
+  display: none;
+  background-color: #efefef;
+  height: 50px;
+  bottom: 0px;
+  width: 100%;
+  min-height: 1px;
+  position: absolute;
+  left: 0px;
+  z-index: 1;
+}
+
+/*@media (max-width: 1250px) 
+{
+  .itemsContainer{
+    position: relative;
+    width: 90%;
+    min-width: 450px;
+    max-width: 970px;
+  }
+}
+*/
+@media (max-width: 767px) 
+{
+  .itemsContainer{
+    position: relative;
+    width: 100%;
+    /*margin-left: 0px;*/
+    margin-left: 12px;
+  }
+
+  .blocker-right {
+    display: none;
+  }
+  
+  .blocker-left {
+    display: none;
+  }
+
+  .blocker-bottom {
+    display: block;
+  }
+
+  .title{
+    margin-left: 24px;
+    margin-top: 18px;
+    margin-bottom: 16px;
+    color: rgb(51, 51, 51);
+    float: left;
+    font-size: 18px;
+    color: #333333;
+    letter-spacing: -0.5px;
+    text-align: left;
+    font-family: "opensans-regular-webfont", Arial, sans-serif;
+  }
+
+  .items-top{
+    width: 100%;
+    margin-left: 0%;
+  }
+
+  .price{
+    font-size: 14px;
+  }
+
+  .logos {
+      right: 24px;
+  }
+
+  /*.item{
+    width: 200px !important;
+  }*/
+
+}
+
+</style>
+</html>

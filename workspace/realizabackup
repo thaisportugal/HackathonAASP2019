@@ -1,0 +1,254 @@
+Script started on Tue Sep  3 12:32:31 2019
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace]1;..top/workspace]0;~/desktop/workspace[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[35C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m85d[39m :: [31m⬡[39m[56Dlls[?1l>[?2004l
+]2;ls -G]1;ls]0;ls -G @ workspacegoogle.txt    [1m[36mprojetos-c#[39;49m[0m   [1m[36mprojetos-php[39;49m[0m  [1m[36mscripts[39;49m[0m
+mensagem.txt  [1m[36mprojetos-java[39;49m[0m realizabackup scripts.txt
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace]1;..top/workspace]0;~/desktop/workspace[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[35C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m85d[39m :: [31m⬡[39m[56Dzzip backup.zip -qr ` ~/workspace/[?1l>[?2004l
+]2;zip backup.zip -qr ~/workspace/]1;zip]0;zip backup.zip -qr ~/workspace/ @ workspace
+zip error: Nothing to do! (try: zip -qr backup.zip . -i /Users/lugia/workspace/)
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace]1;..top/workspace]0;~/desktop/workspace[0m[27m[24m[J
+ [35m△[39m [34m~/desktop/workspace[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [35m△[39m [34m~/desktop/workspace[39m [K[35C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m85d[39m :: [31m⬡[39m[56Deecho "bACK    Backup realizado com sucesso"[K[?1l>[?2004l
+]2;echo "Backup realizado com sucesso"]1;echo]0;echo "Backup realizado com sucesso" @ workspaceBackup realizado com sucesso
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace]1;..top/workspace]0;~/desktop/workspace[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[35C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m85d[39m :: [31m⬡[39m[56Dlls[?1l>[?2004l
+]2;ls -G]1;ls]0;ls -G @ workspacegoogle.txt    [1m[36mprojetos-c#[39;49m[0m   [1m[36mprojetos-php[39;49m[0m  [1m[36mscripts[39;49m[0m
+mensagem.txt  [1m[36mprojetos-java[39;49m[0m realizabackup scripts.txt
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace]1;..top/workspace]0;~/desktop/workspace[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[35C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m85d[39m :: [31m⬡[39m[56D[7m$ gedit realizabackup &[27m
+[K[A[23C[27m$[27m [27mg[27me[27md[27mi[27mt[27m [27mr[27me[27ma[27ml[27mi[27mz[27ma[27mb[27ma[27mc[27mk[27mu[27mp[27m [27m&[1B[K[?1l>[?2004l
+]2;$ gedit realizabackup &]1;$]0;$ gedit realizabackup & @ workspace[1] 48954
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace]1;..top/workspace]0;~/desktop/workspacezsh: command not found: $
+[1]  + 48954 exit 127   $ gedit realizabackup
+[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[35C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m85d[39m :: [31m⬡[39m[56Dggedir   t it realizabackup &[?1l>[?2004l
+]2;gedit realizabackup &]1;gedit]0;gedit realizabackup & @ workspace[1] 48992
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace]1;..top/workspace]0;~/desktop/workspacezsh: command not found: gedit
+[1]  + 48992 exit 127   gedit realizabackup
+[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[35C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m85d[39m :: [31m⬡[39m[56Dssh realizabackup[?1l>[?2004l
+]2;sh realizabackup]1;sh]0;sh realizabackup @ workspaceScript started, output file is started
+Script: on: No such file or directory
+
+Script done, output file is started
+realizabackup: line 2: [1m[7m%[27m[1m[0m: command not found
+realizabackup: line 2: lugia@Lugias-MacBook-Pro:: command not found
+realizabackup: line 2: ..top/workspace]0: No such file or directory
+realizabackup: line 2: /Users/lugia/desktop/workspace[0m[27m[24m[J: No such file or directory
+realizabackup: line 3: [37m▲[39m: command not found
+realizabackup: line 4: [37m▲[39m: command not found
+realizabackup: line 4: 5: command not found
+realizabackup: line 4: 242mmaster[39m: command not found
+realizabackup: line 5: ]2: command not found
+ls: illegal option -- 
+usage: ls [-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1] [file ...]
+realizabackup: line 5: ls]0: command not found
+ls: \033[1m\033[36mprojetos-c#\033[39: No such file or directory
+ls: @: No such file or directory
+ls: workspace\agoogle.txt: No such file or directory
+realizabackup: line 5: 49m[0m: command not found
+realizabackup: line 5: 49m[0m: command not found
+realizabackup: line 5: 49m[0m: command not found
+realizabackup: line 6: mensagem.txt: command not found
+realizabackup: line 6: 49m[0m: command not found
+realizabackup: line 7: [1m[7m%[27m[1m[0m: command not found
+realizabackup: line 7: lugia@Lugias-MacBook-Pro:: command not found
+realizabackup: line 7: ..top/workspace]0: No such file or directory
+realizabackup: line 7: /Users/lugia/desktop/workspace[0m[27m[24m[J: No such file or directory
+realizabackup: line 8: [37m▲[39m: command not found
+realizabackup: line 9: unexpected EOF while looking for matching ``'
+realizabackup: line 31: syntax error: unexpected end of file
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace]1;..top/workspace]0;~/desktop/workspace[0m[27m[24m[J
+ [35m△[39m [34m~/desktop/workspace[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [35m△[39m [34m~/desktop/workspace[39m [K[35C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m85d[39m :: [31m⬡[39m[56D[7m$ unzip -l backup.zip[27m
+[K[A[23C[27m$[27m [27mu[27mn[27mz[27mi[27mp[27m [27m-[27ml[27m [27mb[27ma[27mc[27mk[27mu[27mp[27m.[27mz[27mi[27mp[1B[K[A[44C unzip -l backup.zip [21D[?1l>[?2004l[1B
+]2;unzip -l backup.zip]1;unzip]0;unzip -l backup.zip @ workspaceunzip:  cannot find or open backup.zip, backup.zip.zip or backup.zip.ZIP.
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace]1;..top/workspace]0;~/desktop/workspace[0m[27m[24m[J
+ [35m△[39m [34m~/desktop/workspace[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [35m△[39m [34m~/desktop/workspace[39m [K[35C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m85d[39m :: [31m⬡[39m[56Dlls -l realizabackup[?1l>[?2004l
+]2;ls -G -l realizabackup]1;ls]0;ls -G -l realizabackup @ workspace-rw-r--r--  1 lugia  staff  7710 Sep  3 12:40 realizabackup
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace]1;..top/workspace]0;~/desktop/workspace[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[35C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m85d[39m :: [31m⬡[39m[56Dlls -l[?1l>[?2004l
+]2;ls -G -l]1;ls]0;ls -G -l @ workspacetotal 144
+-rw-r--r--  1 lugia  staff      0 Sep  3 12:39 ?[?2004l??
+-rw-r--r--@ 1 lugia  staff  47540 Aug 30 14:49 google.txt
+-rw-r--r--  1 lugia  staff     10 Aug 30 13:05 mensagem.txt
+drwxr-xr-x  3 lugia  staff     96 Aug 30 12:45 [1m[36mprojetos-c#[39;49m[0m
+drwxr-xr-x  3 lugia  staff     96 Aug 30 12:45 [1m[36mprojetos-java[39;49m[0m
+drwxr-xr-x  2 lugia  staff     64 Aug 30 11:35 [1m[36mprojetos-php[39;49m[0m
+-rw-r--r--  1 lugia  staff   8317 Sep  3 12:41 realizabackup
+drwxr-xr-x  2 lugia  staff     64 Sep  3 12:30 [1m[36mscripts[39;49m[0m
+-rw-r--r--  1 lugia  staff     14 Sep  3 12:30 scripts.txt
+-rw-r--r--  1 lugia  staff    159 Sep  3 12:39 started
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace]1;..top/workspace]0;~/desktop/workspace[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[35C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m85d[39m :: [31m⬡[39m[56Dlls -d[?1l>[?2004l
+]2;ls -G -d]1;ls]0;ls -G -d @ workspace[1m[36m.[39;49m[0m
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace]1;..top/workspace]0;~/desktop/workspace[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[35C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m85d[39m :: [31m⬡[39m[56D[7mchmod +x realizabackup[27m[22D[27mc[27mh[27mm[27mo[27md[27m [27m+[27mx[27m [27mr[27me[27ma[27ml[27mi[27mz[27ma[27mb[27ma[27mc[27mk[27mu[27mp[?1l>[?2004l
+]2;chmod +x realizabackup]1;chmod]0;chmod +x realizabackup @ workspace[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace]1;..top/workspace]0;~/desktop/workspace[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[35C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m85d[39m :: [31m⬡[39m[56D[7mls -l realizabackup[27m[19D[27ml[27ms[27m [27m-[27ml[27m [27mr[27me[27ma[27ml[27mi[27mz[27ma[27mb[27ma[27mc[27mk[27mu[27mp[?1l>[?2004l
+]2;ls -G -l realizabackup]1;ls]0;ls -G -l realizabackup @ workspace-rwxr-xr-x  1 lugia  staff  10736 Sep  3 12:45 [31mrealizabackup[39;49m[0m
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace]1;..top/workspace]0;~/desktop/workspace[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[35C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m85d[39m :: [31m⬡[39m[56Dlls[?1l>[?2004l
+]2;ls -G]1;ls]0;ls -G @ workspace?[?2004l??    mensagem.txt  [1m[36mprojetos-java[39;49m[0m [31mrealizabackup[39;49m[0m scripts.txt
+google.txt    [1m[36mprojetos-c#[39;49m[0m   [1m[36mprojetos-php[39;49m[0m  [1m[36mscripts[39;49m[0m       started
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace]1;..top/workspace]0;~/desktop/workspace[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[35C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m85d[39m :: [31m⬡[39m[56D[7m./realizabackup[27m
+[K[A[23C[27m.[27m/[27mr[27me[27ma[27ml[27mi[27mz[27ma[27mb[27ma[27mc[27mk[27mu[27mp[1B[K[?1l>[?2004l
+]2;./realizabackup]1;./realizabackup]0;./realizabackup @ workspaceScript started, output file is started
+Script: on: No such file or directory
+
+Script done, output file is started
+./realizabackup: line 2: [1m[7m%[27m[1m[0m: command not found
+./realizabackup: line 2: lugia@Lugias-MacBook-Pro:: command not found
+./realizabackup: line 2: ..top/workspace]0: No such file or directory
+./realizabackup: line 2: /Users/lugia/desktop/workspace[0m[27m[24m[J: No such file or directory
+./realizabackup: line 3: [37m▲[39m: command not found
+./realizabackup: line 4: [37m▲[39m: command not found
+./realizabackup: line 4: 5: command not found
+./realizabackup: line 4: 242mmaster[39m: command not found
+./realizabackup: line 5: ]2: command not found
+ls: illegal option -- 
+usage: ls [-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1] [file ...]
+./realizabackup: line 5: ls]0: command not found
+ls: \033[1m\033[36mprojetos-c#\033[39: No such file or directory
+ls: @: No such file or directory
+ls: workspace\agoogle.txt: No such file or directory
+./realizabackup: line 5: 49m[0m: command not found
+./realizabackup: line 5: 49m[0m: command not found
+./realizabackup: line 5: 49m[0m: command not found
+./realizabackup: line 6: mensagem.txt: command not found
+./realizabackup: line 6: 49m[0m: command not found
+./realizabackup: line 7: [1m[7m%[27m[1m[0m: command not found
+./realizabackup: line 7: lugia@Lugias-MacBook-Pro:: command not found
+./realizabackup: line 7: ..top/workspace]0: No such file or directory
+./realizabackup: line 7: /Users/lugia/desktop/workspace[0m[27m[24m[J: No such file or directory
+./realizabackup: line 8: [37m▲[39m: command not found
+./realizabackup: line 66: unexpected EOF while looking for matching ``'
+./realizabackup: line 101: syntax error: unexpected end of file
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace]1;..top/workspace]0;~/desktop/workspace[0m[27m[24m[J
+ [35m△[39m [34m~/desktop/workspace[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [35m△[39m [34m~/desktop/workspace[39m [K[35C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m85d[39m :: [31m⬡[39m[56D[7mchmod -w realizabackup[27m[22D[27mc[27mh[27mm[27mo[27md[27m [27m-[27mw[27m [27mr[27me[27ma[27ml[27mi[27mz[27ma[27mb[27ma[27mc[27mk[27mu[27mp[?1l>[?2004l
+]2;chmod -w realizabackup]1;chmod]0;chmod -w realizabackup @ workspace[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace]1;..top/workspace]0;~/desktop/workspace[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[35C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m85d[39m :: [31m⬡[39m[56Dlls -l realizabackup[?1l>[?2004l
+]2;ls -G -l realizabackup]1;ls]0;ls -G -l realizabackup @ workspace-r-xr-xr-x  1 lugia  staff  14664 Sep  3 12:46 [31mrealizabackup[39;49m[0m
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace]1;..top/workspace]0;~/desktop/workspace[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[35C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m85d[39m :: [31m⬡[39m[56D[H[2J[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[35C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m85d[39m :: [31m⬡[39m[56D[H[2J[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[35C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m85d[39m :: [31m⬡[39m[56D[H[2J[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[35C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m85d[39m :: [31m⬡[39m[56Dc m mmkdir temp[?1l>[?2004l
+]2;mkdir temp]1;mkdir]0;mkdir temp @ workspace[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace]1;..top/workspace]0;~/desktop/workspace[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34m~/desktop/workspace[39m [K[35C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m86d[39m :: [31m⬡[39m[56Dccd temp[?1l>[?2004l
+]2;cd temp]1;cd]0;cd temp @ workspace[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace/temp]1;..orkspace/temp]0;~/desktop/workspace/temp[0m[27m[24m[J
+ [37m▲[39m [34mdesktop/workspace/temp[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34mdesktop/workspace/temp[39m [K[32C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m86d[39m :: [32m⬢[39m[53Dwwge w  ccurl -O [7mhttp://reamp-media.s3.amazonaws.com/aouisdnfoa[7mi[7mud/nova-vitrine-samsung.html[27m[K[A[5C[27mh[27mt[27mt[27mp[27m:[27m/[27m/[27mr[27me[27ma[27mm[27mp[27m-[27mm[27me[27md[27mi[27ma[27m.[27ms[27m3[27m.[27ma[27mm[27ma[27mz[27mo[27mn[27ma[27mw[27ms[27m.[27mc[27mo[27mm[27m/[27ma[27mo[27mu[27mi[27ms[27md[27mn[27mf[27mo[27mai[27mu[27md[27m/[27mn[27mo[27mv[27ma[27m-[27mv[27mi[27mt[27mr[27mi[27mn[27me[27m-[27ms[27ma[27mm[27ms[27mu[27mn[27mg[27m.[27mh[27mt[27mm[27ml[?1l>[?2004l
+]2;curl -O ]1;curl]0;curl -O  @ temp  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 20 35194   20  7160    0     0   5786      0  0:00:06  0:00:01  0:00:05  5788100 35194  100 35194    0     0  17466      0  0:00:02  0:00:02 --:--:-- 17474
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace/temp]1;..orkspace/temp]0;~/desktop/workspace/temp[0m[27m[24m[J
+ [37m▲[39m [34mdesktop/workspace/temp[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34mdesktop/workspace/temp[39m [K[32C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m86d[39m :: [31m⬡[39m[53Dlls[?1l>[?2004l
+]2;ls -G]1;ls]0;ls -G @ tempnova-vitrine-samsung.html
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace/temp]1;..orkspace/temp]0;~/desktop/workspace/temp[0m[27m[24m[J
+ [37m▲[39m [34mdesktop/workspace/temp[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34mdesktop/workspace/temp[39m [K[32C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m86d[39m :: [31m⬡[39m[53Dssub
+[0m_sub_commands  _subversion    pubsub         xsubpp5.18                  
+[J_subscript     [Jhb-subset      [Jxsubpp         [J                          [A[A[0m[27m[24m[39m[26Csub[K[29C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m86d[39m :: [31m⬡[39m[39m[50D s  ccode
+[J[A[30Csign      c  lls[?1l>[?2004l
+[J]2;ls -G]1;ls]0;ls -G @ tempnova-vitrine-samsung.html
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace/temp]1;..orkspace/temp]0;~/desktop/workspace/temp[0m[27m[24m[J
+ [37m▲[39m [34mdesktop/workspace/temp[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34mdesktop/workspace/temp[39m [K[32C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m86d[39m :: [31m⬡[39m[53Dlls[?1l>[?2004l
+]2;ls -G]1;ls]0;ls -G @ tempnova-vitrine-samsung.html
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/desktop/workspace/temp]1;..orkspace/temp]0;~/desktop/workspace/temp[0m[27m[24m[J
+ [37m▲[39m [34mdesktop/workspace/temp[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34mdesktop/workspace/temp[39m [K[32C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m86d[39m :: [31m⬡[39m[53Dccd[?1l>[?2004l
+]2;cd]1;cd]0;cd @ temp[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~]1;~]0;~[0m[27m[24m[J
+ [37m▲[39m [34m~[39m [K[?1h=[?2004hccd dev/workplace[1m/[0m[0m/temp[?1l>[?2004l
+]2;cd dev/workplace/temp]1;cd]0;cd dev/workplace/temp @ lugia[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/dev/workplace/temp]1;..orkplace/temp]0;~/dev/workplace/temp[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[?1h=[?2004hl[A[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m l[K[35C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m86d[39m :: [31m⬡[39m[56Dls[?1l>[?2004l
+]2;ls -G]1;ls]0;ls -G @ tempvitrinePrebid-2.html
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/dev/workplace/temp]1;..orkplace/temp]0;~/dev/workplace/temp[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[36C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m86d[39m :: [31m⬡[39m[57D[H[2J[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[36C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m86d[39m :: [31m⬡[39m[57Dccurl = -O [7mhttp://reamp-media.s3.amazonaws.com/aouisdnfoaiud/[7mn[7mova-vitrine-samsung.html[27m[K[A[5C[27mh[27mt[27mt[27mp[27m:[27m/[27m/[27mr[27me[27ma[27mm[27mp[27m-[27mm[27me[27md[27mi[27ma[27m.[27ms[27m3[27m.[27ma[27mm[27ma[27mz[27mo[27mn[27ma[27mw[27ms[27m.[27mc[27mo[27mm[27m/[27ma[27mo[27mu[27mi[27ms[27md[27mn[27mf[27mo[27ma[27mi[27mu[27md[27m/n[27mo[27mv[27ma[27m-[27mv[27mi[27mt[27mr[27mi[27mn[27me[27m-[27ms[27ma[27mm[27ms[27mu[27mn[27mg[27m.[27mh[27mt[27mm[27ml[?1l>[?2004l
+]2;curl -O ]1;curl]0;curl -O  @ temp  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 91 35194   91 32136    0     0  39887      0 --:--:-- --:--:-- --:--:-- 39870100 35194  100 35194    0     0  43667      0 --:--:-- --:--:-- --:--:-- 43665
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/dev/workplace/temp]1;..orkplace/temp]0;~/dev/workplace/temp[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[36C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m86d[39m :: [31m⬡[39m[57Dlls[?1l>[?2004l
+]2;ls -G]1;ls]0;ls -G @ tempnova-vitrine-samsung.html vitrinePrebid-2.html
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/dev/workplace/temp]1;..orkplace/temp]0;~/dev/workplace/temp[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[36C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m86d[39m :: [31m⬡[39m[57Dss3cmd put nova-vitrine-samsung.html[1m [0m[K[0m s [K[34m[39m ⇣ [38;5;242mmaster[39m :: [31m86d[39m :: [31m⬡[39m[22D              e-samsung.html[1m [0m[K[0m s3://reamp-media/ausdn [Kffoaiudsnf/ -P[?1l>[?2004l
+]2;s3cmd put nova-vitrine-samsung.html s3://reamp-media/ausdnfoaiudsnf/ -P]1;s3cmd]0;s3cmd put nova-vitrine-samsung.html s3://reamp-media/ausdnfoaiudsnf/ -P @ tempWARNING: Module python-magic is not available. Guessing MIME types based on file extensions.
+upload: 'nova-vitrine-samsung.html' -> 's3://reamp-media/ausdnfoaiudsnf/nova-vitrine-samsung.html'  [1 of 1]
+ 35160 of 35160   100% in    0s    48.45 kB/s 35160 of 35160   100% in    2s    13.16 kB/s 35160 of 35160   100% in    2s    13.16 kB/s  done
+Public URL of the object is: http://reamp-media.s3.amazonaws.com/ausdnfoaiudsnf/nova-vitrine-samsung.html
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/dev/workplace/temp]1;..orkplace/temp]0;~/dev/workplace/temp[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[36C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m86d[39m :: [31m⬡[39m[57Ds3cmd put nova-vitrine-samsung.html s3://reamp-media/ausdnfoaiudsnf/ -P[K[?1l>[?2004l
+]2;s3cmd put nova-vitrine-samsung.html s3://reamp-media/ausdnfoaiudsnf/ -P]1;s3cmd]0;s3cmd put nova-vitrine-samsung.html s3://reamp-media/ausdnfoaiudsnf/ -P @ tempWARNING: Module python-magic is not available. Guessing MIME types based on file extensions.
+upload: 'nova-vitrine-samsung.html' -> 's3://reamp-media/ausdnfoaiudsnf/nova-vitrine-samsung.html'  [1 of 1]
+ 35160 of 35160   100% in    0s    60.33 kB/s 35160 of 35160   100% in    1s    23.82 kB/s  done
+Public URL of the object is: http://reamp-media.s3.amazonaws.com/ausdnfoaiudsnf/nova-vitrine-samsung.html
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/dev/workplace/temp]1;..orkplace/temp]0;~/dev/workplace/temp[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[36C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m86d[39m :: [31m⬡[39m[57Ds3cmd put nova-vitrine-samsung.html s3://reamp-media/ausdnfoaiudsnf/ -P[K[?1l>[?2004l
+]2;s3cmd put nova-vitrine-samsung.html s3://reamp-media/ausdnfoaiudsnf/ -P]1;s3cmd]0;s3cmd put nova-vitrine-samsung.html s3://reamp-media/ausdnfoaiudsnf/ -P @ tempWARNING: Module python-magic is not available. Guessing MIME types based on file extensions.
+upload: 'nova-vitrine-samsung.html' -> 's3://reamp-media/ausdnfoaiudsnf/nova-vitrine-samsung.html'  [1 of 1]
+ 35160 of 35160   100% in    0s    59.08 kB/s 35160 of 35160   100% in    2s    15.02 kB/s 35160 of 35160   100% in    2s    15.02 kB/s  done
+Public URL of the object is: http://reamp-media.s3.amazonaws.com/ausdnfoaiudsnf/nova-vitrine-samsung.html
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/dev/workplace/temp]1;..orkplace/temp]0;~/dev/workplace/temp[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[36C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m86d[39m :: [31m⬡[39m[57Ds3cmd put nova-vitrine-samsung.html s3://reamp-media/ausdnfoaiudsnf/ -P[K[?1l>[?2004l
+]2;s3cmd put nova-vitrine-samsung.html s3://reamp-media/ausdnfoaiudsnf/ -P]1;s3cmd]0;s3cmd put nova-vitrine-samsung.html s3://reamp-media/ausdnfoaiudsnf/ -P @ tempWARNING: Module python-magic is not available. Guessing MIME types based on file extensions.
+upload: 'nova-vitrine-samsung.html' -> 's3://reamp-media/ausdnfoaiudsnf/nova-vitrine-samsung.html'  [1 of 1]
+ 35422 of 35422   100% in    0s    50.67 kB/s 35422 of 35422   100% in    2s    13.20 kB/s 35422 of 35422   100% in    2s    13.20 kB/s  done
+Public URL of the object is: http://reamp-media.s3.amazonaws.com/ausdnfoaiudsnf/nova-vitrine-samsung.html
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/dev/workplace/temp]1;..orkplace/temp]0;~/dev/workplace/temp[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[36C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m86d[39m :: [31m⬡[39m[57Dlls[?1l>[?2004l
+]2;ls -G]1;ls]0;ls -G @ tempnova-vitrine-samsung.html vitrinePrebid-2.html
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/dev/workplace/temp]1;..orkplace/temp]0;~/dev/workplace/temp[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[36C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m86d[39m :: [31m⬡[39m[57Dmmv s nova-vitrine-samsung.html[1m [0m[0m nova-vitrine-samsung.html[1m [0m[K[0m             caixa.html[?1l>[?2004l
+]2;mv nova-vitrine-samsung.html nova-vitrine-caixa.html]1;mv]0;mv nova-vitrine-samsung.html nova-vitrine-caixa.html @ temp[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/dev/workplace/temp]1;..orkplace/temp]0;~/dev/workplace/temp[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[36C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m86d[39m :: [31m⬡[39m[57Dss2s s2s s3cmd put nova-vitrine-caixa.html[1m [0m[0m s3[K://reamp=me   -assts  ets/asiudn [Kffaoidu/ - P[?1l>[?2004l
+]2;s3cmd put nova-vitrine-caixa.html s3://reamp-assets/asiudnfaoidu/ P]1;s3cmd]0;s3cmd put nova-vitrine-caixa.html s3://reamp-assets/asiudnfaoidu/ P @ tempERROR: Parameter problem: Destination must be S3Uri. Got: file://P
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/dev/workplace/temp]1;..orkplace/temp]0;~/dev/workplace/temp[0m[27m[24m[J
+ [35m△[39m [34mdev/workplace/temp[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [35m△[39m [34mdev/workplace/temp[39m [K[36C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m86d[39m :: [31m⬡[39m[57Ds3cmd put nova-vitrine-caixa.html s3://reamp-assets/asiudnfaoidu/ P[K[1C-P[?1l>[?2004l
+]2;s3cmd put nova-vitrine-caixa.html s3://reamp-assets/asiudnfaoidu/ -P]1;s3cmd]0;s3cmd put nova-vitrine-caixa.html s3://reamp-assets/asiudnfaoidu/ -P @ tempWARNING: Module python-magic is not available. Guessing MIME types based on file extensions.
+upload: 'nova-vitrine-caixa.html' -> 's3://reamp-assets/asiudnfaoidu/nova-vitrine-caixa.html'  [1 of 1]
+ 35160 of 35160   100% in    0s    64.37 kB/s 35160 of 35160   100% in    2s    15.79 kB/s 35160 of 35160   100% in    2s    15.79 kB/s  done
+Public URL of the object is: http://reamp-assets.s3.amazonaws.com/asiudnfaoidu/nova-vitrine-caixa.html
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/dev/workplace/temp]1;..orkplace/temp]0;~/dev/workplace/temp[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[36C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m86d[39m :: [31m⬡[39m[57Ds3cmd put nova-vitrine-caixa.html s3://reamp-assets/asiudnfaoidu/ -P[K[?1l>[?2004l
+]2;s3cmd put nova-vitrine-caixa.html s3://reamp-assets/asiudnfaoidu/ -P]1;s3cmd]0;s3cmd put nova-vitrine-caixa.html s3://reamp-assets/asiudnfaoidu/ -P @ tempWARNING: Module python-magic is not available. Guessing MIME types based on file extensions.
+upload: 'nova-vitrine-caixa.html' -> 's3://reamp-assets/asiudnfaoidu/nova-vitrine-caixa.html'  [1 of 1]
+ 35159 of 35159   100% in    0s    55.33 kB/s 35159 of 35159   100% in    2s    14.20 kB/s 35159 of 35159   100% in    2s    14.20 kB/s  done
+Public URL of the object is: http://reamp-assets.s3.amazonaws.com/asiudnfaoidu/nova-vitrine-caixa.html
+[1m[7m%[27m[1m[0m                                                                                ]2;lugia@Lugias-MacBook-Pro: ~/dev/workplace/temp]1;..orkplace/temp]0;~/dev/workplace/temp[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[?1h=[?2004h[A[0m[27m[24m[J
+ [37m▲[39m [34mdev/workplace/temp[39m [K[36C[34m[39m ⇣ [38;5;242mmaster[39m :: [31m86d[39m :: [31m⬡[39m[57D
